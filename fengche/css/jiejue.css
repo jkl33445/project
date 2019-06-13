@@ -1,0 +1,26 @@
+#header2{
+	padding: 80px;
+	background-image: url(../img/slide_simple_bg1.png);
+	color: white;
+}
+#header3{
+	padding: 40px;
+}
+#header3 p{
+	color: #9b9b9b;
+}
+#header4{
+	padding: 40px;
+}
+#header4 p{
+	color: #9b9b9b;
+}
+#header5 p{
+	color: #9b9b9b;
+}
+.text-right div{
+	margin-bottom: 50px;
+}
+.text-left div{
+	margin-bottom: 50px;
+}

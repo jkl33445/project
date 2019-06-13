@@ -1,0 +1,54 @@
+#header{
+	padding: 20px;
+	background-color: white;
+}
+#header i{
+	font-size: 26px;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translate(0,-50%);
+}
+#header .col-lg-3{
+	width: 220px;
+}
+#header button{
+	background-color: white;
+	color: #7c6aa6;
+	border:1px solid #7c6aa6;
+}
+#nav{
+	background-color: white;
+}
+#nav li{
+	float: none;
+	display: table-cell;
+	width: 1%;
+	color: #000000;
+}
+#footer{
+	background-color: #404467;
+	padding: 40px;
+	color: white;
+}
+#footer .col-lg-3{
+	padding-right: 40px;
+}
+#footer a{
+	color: white;
+}
+#footer p{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+#footer ul{
+	list-style:none;
+	padding: 0;
+}
+#footer ul span{
+	float: right;
+}
+#footer ul hr{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
