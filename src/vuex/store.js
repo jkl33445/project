@@ -1,64 +1,61 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import { Message } from 'element-ui'
 Vue.use(Vuex)
 // state对象用来存储数据
-var state={
-		tags: [
-		  { name: '首页',type:'warning',url:'/',index:'101'}
-		],
-		LoginFlag:false,
-		defaultIndex:'101'
-
+var state = {
+	tags: [{
+		name: '首页',
+		type: 'warning',
+		url: '/Welcome',
+		index: '101'
+	}],
+	defaultIndex: '101',
+	loginFlag: false
 }
 // mutations对象用来存储方法
 var mutations = {
-	change(state,index){
-		state.defaultIndex=index
-	},
-	cz(state){
-		state.tags=[{
-			name: '首页'
-			,type:'warning',url:'/'
-		}]
-	},
-	// 添加tags标签
-	addtag (state,obj){
-		// 把数组中，所有的元素 type改成info
-		for(var item of state.tags){
-			item.type='info';
+	//添加tag标签
+	addTag(state, obj) {
+		//先清除被选中的样式warning
+		for (var item of state.tags) {
+			item.type = 'info';
 		}
-		// 重复的不再添加
-		for(var item of state.tags){
-			if(item.name==obj.name){
-				item.type='warning';
+		//重复的不再添加
+		for (var item of state.tags) {
+			if (item.name == obj.name) {
+				item.type = 'warning';
 				return;
 			}
 		}
-		state.tags.push(obj);
-	},
-	updateTag(state,index){
-		// 把数组中，所有的元素 type改成info
-		for(var item of state.tags){
-			item.type='info';
+		//tag标签长度超过10个不在添加
+		if(state.tags.length==10){
+			Message("最多打开10个标签");
+		}else{
+			state.tags.push(obj);
 		}
-		// 把index对应的改成waring
-		state.tags[index].type='warning';
-	},//删除tag标签
-	del(state,index){
-		state.tags.splice(index,1)
 	},
-	addCnpm(state,cnpm){
-		state.tableData.push(cnpm)
-	},
-	delCnpm(state,date){
-		for (var i = 0; i <state.tableData.length; i++) {
-			
-			if(state.tableData[i].date==date){
-				console.log(i)
-				state.tableData.splice(i,1)
-			}
+	//点击更新tag标签
+	updateTag(state, index) {
+		//将所有type设置为空
+		for (var item of state.tags) {
+			item.type = 'info';
 		}
+		//选中时改变样式为warning
+		state.tags[index].type = 'warning';
+	},
+	//删除tag标签
+	delTag(state, index) {
+		state.tags.splice(index, 1);
+	},
+	//重置tag标签
+	resetTag(state) {
+		state.tags = [{
+			name: '首页',
+			type: 'warning',
+			url: '/Welcome',
+			index: '101'
+		}]
 	}
 }
 // 创建一个store对象,并暴露出去 store对象有两个属性,state和mutations
